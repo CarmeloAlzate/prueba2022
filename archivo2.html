@@ -5,8 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #contenedor{
+            background-color: aquamarine;
+        }
+    </style>
+    <script>
+        function cambiarContenido(){
+            let req = new XMLHttpRequest;
+            req.overrideMimeType("application/json");
+            req.open("GET", "colombia.min.json", true);
+            req.onreadystatechange = function () {
+                if (req.readyState == 4 && req.status == "200") {
+			        console.log(JSON.parse(req.responseText));
+
+		        }
+            };
+            req.send(null);
+            
+        }
+    </script>
 </head>
 <body>
-    <h2>tercer commit</h2>
+    archivo 1 de prueba
+    <button value="Recargar div" onclick="cambiarContenido()">Recargar</button>
+    <div id="contenedor"></div>
 </body>
 </html>
+<!--
+    https://github.com/marcovega/colombia-json
+
+-->
