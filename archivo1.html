@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #contenedor{
+            background-color: aquamarine;
+        }
+    </style>
+    <script>
+        function cambiarContenido(){
+            let req = new XMLHttpRequest;
+            req.open("GET","datos.txt");
+            req.onreadystatechange = function () {
+                if (req.readyState == 4) {
+                    if(req.status == 200){
+                        let c = document.querySelector("#contenedor");
+                            c.innerHTML =req.responseText; 
+                            console.log(req.responseText);
+                        }else{
+                            console.log("Error loading page");
+                    }
+                }
+            };
+            req.send(null);
+            
+        }
+    </script>
+</head>
+<body>
+   
+    <button value="Recargar div" onclick="cambiarContenido()">  Recargar  </button>
+    <div id="contenedor">
+        hola
+    </div>
+</body>
+</html>

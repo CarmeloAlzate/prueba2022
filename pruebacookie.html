@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function detectar(){
+           let cookie = sessionStorage.getItem("galleta");
+           if(cookie==null || cookie=="null"){
+                alert("es la primera vez que estoy aca");
+                sessionStorage.setItem("galleta","hola soy una cookie");
+           }else{
+            
+               alert("ya estuve aca antes, mi nombre es "+cookie);
+           }
+        }
+    </script>
+</head>
+<body onload="detectar()">
+  
+    
+</body>
+</html>
